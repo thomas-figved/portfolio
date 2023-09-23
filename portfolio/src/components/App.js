@@ -6,9 +6,24 @@ import Nav from 'components/Nav'
 import PageHome from 'components/pages/PageHome'
 import PageWorks from 'components/pages/PageWorks'
 import PageResume from 'components/pages/PageResume'
+import PageWorkDetail from 'components/pages/PageWorkDetail'
 
 
 function App() {
+
+  const cat_choices = ['front','back','wp'];
+
+  const works = [...Array(20)].map(function(x, i){
+    return {
+      work_id: i+1,
+      work_content: 'blablabla',
+      categories: [
+        cat_choices[Math.floor(Math.random() * 3)],
+        cat_choices[Math.floor(Math.random() * 3)],
+      ]
+    }
+  });
+
   return (
     <>
       <header className="header">
@@ -16,17 +31,18 @@ function App() {
           <h1 className="header__title">
             Thomas Figved
           </h1>
-          <h2 className="header__subtitle">
+          <div className="header__subtitle">
             Full Stack Developer
-          </h2>
+          </div>
         </div>
         <Nav/>
       </header>
       <main className="page-wrap">
         <Routes>
           <Route element={<PageHome/>} path="/"/>
-          <Route element={<PageResume/>} path="/resume"/>
-          <Route element={<PageWorks/>} path="/works"/>
+          <Route element={<PageResume/>} path="resume"/>
+          <Route element={<PageWorks works={works}/>} path="works"/>
+          <Route element={<PageWorkDetail/>} path="works/:id" />
         </Routes>
       </main>
       <footer className="footer">

@@ -1,0 +1,22 @@
+.card {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+
+  @include breakpoint(medium) {
+    aspect-ratio: 1;
+  }
+
+  &--red {
+    background-color: red;
+  }
+
+  &--blue {
+    background-color: blue;
+  }
+
+  &--green {
+    background-color: green;
+  }
+}
