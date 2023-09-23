@@ -1,0 +1,19 @@
+.footer {
+  margin:  60px auto;
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__link {
+    font-weight: bold;
+    color: gray;
+  }
+}

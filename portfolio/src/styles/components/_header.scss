@@ -1,0 +1,21 @@
+.header{
+  margin: 30px 30px 60px;
+  max-width: 1200px;
+  text-align: center;
+
+  @include breakpoint(large) {
+    margin: 30px auto 60px;
+  }
+
+  &__presentation {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin: 0 0 15px;
+  }
+
+  &__subtitle {
+    margin: 0;
+  }
+}

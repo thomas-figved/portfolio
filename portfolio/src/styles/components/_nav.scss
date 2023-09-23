@@ -1,0 +1,23 @@
+.nav {
+  &__list {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    max-width: 200px;
+    flex: 1;
+  }
+
+  &__link {
+    display: block;
+    text-transform: uppercase;
+
+    &--active {
+      color: blue;
+      background-color: red;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+$fonts: 'Roboto', sans-serif;
+
+$black: #333;
+$white: #fff;
+
+//Breakpoints
+$breakpoints: (
+  xsmall: 0,
+  small: 480px,
+  medium: 780px,
+  large: 1024px,
+  xlarge: 1260px,
+  xxlarge: 1500px,
+);
+
+$max-width: 1200px;

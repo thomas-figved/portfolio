@@ -1,0 +1,8 @@
+.page-wrap {
+  margin: 0 30px;
+  max-width: 1200px;
+
+  @include breakpoint(large) {
+    margin: 0 auto;
+  }
+}
