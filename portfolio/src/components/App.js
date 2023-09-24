@@ -2,6 +2,8 @@ import  'styles/main.scss';
 
 import {React} from "react";
 import {Route, Routes } from "react-router-dom";
+import ScrollToTop from "components/ScrollToTop";
+
 import Nav from 'components/Nav'
 import PageHome from 'components/pages/PageHome'
 import PageWorks from 'components/pages/PageWorks'
@@ -9,21 +11,22 @@ import PageResume from 'components/pages/PageResume'
 import PageWorkDetail from 'components/pages/PageWorkDetail'
 
 
-function App() {
+import works from 'data/works.json'
 
-  const cat_choices = ['front','back','wp'];
+const all_filters = retrieve_filters(works);
 
-  const works = [...Array(20)].map(function(x, i){
-    return {
-      work_id: i+1,
-      work_content: 'blablabla',
-      categories: [
-        cat_choices[Math.floor(Math.random() * 3)],
-        cat_choices[Math.floor(Math.random() * 3)],
-      ]
-    }
+function retrieve_filters(works) {
+  let filters = [];
+
+  works.forEach(function (work){
+    filters = filters.concat(work.categories);
   });
+  let uniqueFilters = [...new Set(filters)];
 
+  return uniqueFilters;
+}
+
+function App() {
   return (
     <>
       <header className="header">
@@ -32,7 +35,7 @@ function App() {
             Thomas Figved
           </h1>
           <div className="header__subtitle">
-            Full Stack Developer
+            Senior Web Developer
           </div>
         </div>
         <Nav/>
@@ -41,8 +44,8 @@ function App() {
         <Routes>
           <Route element={<PageHome/>} path="/"/>
           <Route element={<PageResume/>} path="resume"/>
-          <Route element={<PageWorks works={works}/>} path="works"/>
-          <Route element={<PageWorkDetail/>} path="works/:id" />
+          <Route element={<PageWorks works={works} filters={all_filters}/>} path="works"/>
+          <Route element={<PageWorkDetail works={works}/>} path="works/:id"/>
         </Routes>
       </main>
       <footer className="footer">
@@ -55,11 +58,15 @@ function App() {
               Download my <a href="/" className='footer__link'>resume as PDF</a>
             </li>
             <li className="footer__item">
-              Read some of <a href="/" className='footer__link'>my code on GitHub</a>
+              Read some of <a href="/" className='footer__link'>code on GitHub</a>
+            </li>
+            <li className="footer__item">
+              Check <a href="/" className='footer__link'>this portfolio code</a>
             </li>
           </ul>
         </nav>
       </footer>
+      <ScrollToTop/>
     </>
   );
 }

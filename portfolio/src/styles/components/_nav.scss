@@ -14,10 +14,68 @@
   &__link {
     display: block;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -2;
+      content: "";
+      width: 120%;
+      height: 100%;
+      background: $gray;
+      transform-origin: right top;
+      transition: transform 0.3s;
+      transform: skewX(-30deg) scale(0, 1);
+    }
+
+    &:hover {
+      color: $white;
+    }
+
+    &:active {
+      color: $white;
+    }
+
+    &:hover::before {
+      transform-origin: left top;
+      transform: skewX(-30deg) scale(1, 1);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: "";
+      width: 120%;
+      height: 0;
+      background: $white;
+      transition: height 0.3s 0.3s;
+    }
 
     &--active {
-      color: blue;
-      background-color: red;
+      color: $gray;
+
+      &::before {
+        transform-origin: left top;
+        transform: skewX(-30deg) scale(1, 1);
+      }
+
+      &::after {
+        height: calc(100% - 1px);
+      }
+
+      &:hover {
+        color: $gray;
+
+        &::after {
+          height: calc(100% - 1px);
+        }
+      }
     }
   }
 }

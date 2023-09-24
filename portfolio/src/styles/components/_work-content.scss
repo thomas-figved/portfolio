@@ -1,0 +1,26 @@
+.work-content  {
+  border-bottom: 1px solid $gray;
+
+  @include breakpoint(large) {
+    padding: 0 30px;
+  }
+
+  &__paragraph {
+    max-width: 500px;
+    margin: 0 auto 60px;
+
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  &__video {
+    max-width: 700px;
+    margin: 0 auto 80px;
+
+    .video-react-control-bar {
+      transform: translateY(100%);
+    }
+  }
+}

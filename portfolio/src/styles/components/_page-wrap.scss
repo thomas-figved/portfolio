@@ -1,13 +1,33 @@
 .page-wrap {
-  margin: 0 30px;
+  margin: 0 20px;
   max-width: 1200px;
 
-  @include breakpoint(large) {
+  @include breakpoint(small) {
+    margin: 0 30px;
+  }
+
+  @include breakpoint(xlarge) {
     margin: 0 auto;
+  }
+
+  &__filter-txt {
+    margin-bottom: 10px;
+  }
+
+  &__filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+    @include breakpoint(large) {
+      justify-content: flex-start;
+    }
   }
 
   &__card {
     display: grid;
+    grid-gap: 30px;
     
     @include breakpoint(medium) {
       grid-template-columns: repeat(2, 1fr);
@@ -16,5 +36,15 @@
     @include breakpoint(large) {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+
+  &__category {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  &__intro {
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 }

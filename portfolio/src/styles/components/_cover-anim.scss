@@ -1,0 +1,74 @@
+.cover-anim {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+
+  &__cover {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateX(-100%);
+    background-color: $gray;
+    border-radius: 10px;
+  }
+
+  &__wrap {
+    display: block;
+    opacity: 0;
+    height: 100%;
+  }
+
+  &--animate {
+    .cover-anim__wrap {
+      animation: cover-opacity 0.4s forwards;
+    }
+
+    .cover-anim__cover {
+      animation: cover-to-right 0.4s forwards;
+    }
+  }
+}
+
+@keyframes cover-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cover-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  40% {
+    transform: translateX(0);
+  }
+
+  60% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
