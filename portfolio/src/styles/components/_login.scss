@@ -1,0 +1,17 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 40px 20px;
+  border: 1px solid $gray;
+
+  @include breakpoint(small) {
+    padding: 40px;
+  }
+
+  &__error {
+    color: $red;
+    font-size: 14px;
+  }
+}

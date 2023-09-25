@@ -28,9 +28,12 @@
   &__card {
     display: grid;
     grid-gap: 30px;
-    
+    max-width: 500px;
+    margin: auto;
+
     @include breakpoint(medium) {
       grid-template-columns: repeat(2, 1fr);
+      max-width: 100%;
     }
 
     @include breakpoint(large) {
@@ -46,5 +49,10 @@
   &__intro {
     font-size: 20px;
     margin-bottom: 20px;
+  }
+
+  &__home {
+    max-width: 700px;
+    margin: auto;
   }
 }

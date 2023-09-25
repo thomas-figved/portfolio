@@ -1,16 +1,16 @@
-import {React, useRef, useLayoutEffect} from "react";
-import {useParams } from "react-router-dom";
+import {React, useRef, useEffect, useLayoutEffect} from "react";
+import {useParams, useNavigate} from "react-router-dom";
 
 import { get_cat_name } from "helpers";
 
 import parse from 'html-react-parser';
-import { Player, ControlBar } from 'video-react';
 import { NavLink } from "react-router-dom";
-
-import "video-react/dist/video-react.css"; // import css
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import password from "data/password.json";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +18,24 @@ gsap.registerPlugin(ScrollTrigger);
 function PageWorkDetail(props) {
   const { id } = useParams();
   const workContent = useRef();
+  const navigate = useNavigate();
+
+  const work = props.works.filter(function(work){
+    let int_id = parseInt(id);
+    return work.work_id === int_id;
+  }).pop();
+
+  useEffect(function(){
+    //read cookie
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("password="))
+      ?.split("=")[1];
+    if(cookieValue !== password.password) {
+      navigate("/works");
+    }
+  }, [navigate])
+
 
   useLayoutEffect(() => {
     const ctx = gsap.context((self) => {
@@ -27,9 +45,15 @@ function PageWorkDetail(props) {
           opacity: 0,
           y: 100,
           duration: 1,
+          onStart: function(){
+            let video = item.querySelector("video");
+            if(video !== null) {
+              video.play();
+            }
+          },
           scrollTrigger: {
             trigger: item,
-            start: "top bottom",
+            start: "top 90%",
           },
         });
       });
@@ -37,11 +61,6 @@ function PageWorkDetail(props) {
     return () => ctx.revert(); // <- Cleanup!
   }, []);
 
-
-  const work = props.works.filter(function(work){
-    let int_id = parseInt(id);
-    return work.work_id === int_id;
-  }).pop();
 
   const get_video_path = function(folder, filename, format) {
     return process.env.PUBLIC_URL + `/medias/${folder}/${filename}.${format}`;
@@ -76,16 +95,12 @@ function PageWorkDetail(props) {
               )
             }else if(content.type === "video"){
               return (
-                <div className="work-content__video" data-fade-in>
-                  <Player
-                    playsInline
-                    autoPlay
-                    loop={true}
-                    muted={true}
-                    src={get_video_path(work.folder, content.filename,"webm")}
-                  >
-                    <ControlBar autoHide={false}/>
-                  </Player>
+                <div key={idx} className="work-content__video" data-fade-in data-video-index={idx}>
+
+                  <video preload="true" controls playsInline muted="true" loop className="video-player">
+                    <source src={get_video_path(work.folder, content.filename, "webm")}  type='video/webm'/>
+                    <source src={get_video_path(work.folder, content.filename, "mp4")}  type='video/mp4'/>
+                  </video>
                 </div>
               )
             }else{

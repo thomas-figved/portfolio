@@ -12,15 +12,12 @@
     a {
       font-weight: bold;
       text-decoration: underline;
+      color: $purple;
     }
   }
 
   &__video {
     max-width: 700px;
     margin: 0 auto 80px;
-
-    .video-react-control-bar {
-      transform: translateY(100%);
-    }
   }
 }

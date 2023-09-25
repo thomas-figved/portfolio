@@ -35,7 +35,7 @@ function App() {
             Thomas Figved
           </h1>
           <div className="header__subtitle">
-            Senior Web Developer
+            Web Developer
           </div>
         </div>
         <Nav/>
@@ -52,16 +52,16 @@ function App() {
         <nav className="footer__nav">
           <ul className="footer__list">
             <li className="footer__item">
-              Connect on <a href="/" className='footer__link'>LinkedIn</a>
+              Connect on <a rel="noreferrer" href="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='link'><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
             </li>
             <li className="footer__item">
-              Download my <a href="/" className='footer__link'>resume as PDF</a>
+              Download my <a rel="noreferrer" href="/" target="_blank" className='link'><i className="fa-solid fa-file-pdf"></i> resume as PDF</a>
             </li>
             <li className="footer__item">
-              Read some of <a href="/" className='footer__link'>code on GitHub</a>
+              Read some of <a rel="noreferrer" href="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub</a>
             </li>
             <li className="footer__item">
-              Check <a href="/" className='footer__link'>this portfolio code</a>
+              Check <a rel="noreferrer" href="https://github.com/thomas-figved/portfolio" target="_blank" className='link'><i className="fa-brands fa-github"></i> this portfolio's code</a>
             </li>
           </ul>
         </nav>

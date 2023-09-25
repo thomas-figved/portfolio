@@ -1,9 +1,10 @@
 import {React} from "react";
+import { Link } from "react-router-dom";
 
 function PageHome() {
   return (
-    <div className="">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis nunc vitae nibh dapibus ultrices. Maecenas molestie sodales felis, at vehicula ex dapibus sit amet. Proin sit amet ligula bibendum ante accumsan finibus et nec dolor. Aenean leo tortor, pulvinar eget semper quis, posuere eu quam. Proin cursus, arcu rutrum ullamcorper egestas, purus sem bibendum odio, sed iaculis diam diam eget nisi. Donec posuere finibus leo, sed posuere lorem egestas et.
+    <div className="page-wrap__home">
+      I'm a web developer with <Link to="resume" className="link">15 years of experience</Link>. Originally from France and currently based in Japan, I'm looking for new opportunities elsewhere. Take a peek at my portfolio to see <Link to="works" className="link">some of my work</Link>. Let's connect and create something great together.
     </div>
   );
 }

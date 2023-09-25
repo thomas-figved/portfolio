@@ -1,20 +1,18 @@
 .card {
+  display: block;
   width: 100%;
-  height: 150px;
   font-weight: bold;
   position: relative;
+  border: 1px solid $lightgray;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 0px #B5B5B5;
 
   @include breakpoint(medium) {
     aspect-ratio: 1.5;
-    height: 100%;
   }
 
   &__title {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     text-align: center;
     width: 100%;
     color: $white;
@@ -32,12 +30,35 @@
     transition: filter 0.3s ease-out;
     object-fit: cover;
     object-position: center center;
-    height: 100%;
-    border-radius: 10px;
+    height: 150px;
+    border-radius: 10px 10px 0 0;
+
+    @include breakpoint(medium) {
+      height: 100%;
+    }
 
     img {
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
     }
+  }
+
+  &__ico-wrap {
+    position: relative;
+    // bottom: 0;
+    // right: 0;
+    width: 100%;
+    background-color: $black;
+    // filter: brightness(1);
+    // transition: filter 0.3s ease-out;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px 10px;
+  }
+
+  &__ico {
+    color: $white;
+    margin-left: 10px;
+    font-size: 20px;
   }
 
   &:hover {

@@ -7,8 +7,27 @@
   padding: 5px 10px;
   border: 2px solid $gray;
   border-radius: 10px;
+  background-color: $white;
 
   &--active {
-    border: 2px solid red;
+    border: 2px solid $purple;
+    color: $purple;
+
+    & .filter__ico {
+      &.ico {
+        filter: invert(47%) sepia(81%) saturate(801%) hue-rotate(218deg) brightness(100%) contrast(85%);
+      }
+    }
+  }
+
+  &__ico {
+    margin-right: 5px;
+
+    &.ico {
+      width: 16px;
+      height: 16px;
+      color: $lightgray;
+      filter: invert(40%) sepia(13%) saturate(0%) hue-rotate(218deg) brightness(89%) contrast(84%);
+    }
   }
 }

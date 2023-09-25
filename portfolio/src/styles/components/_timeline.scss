@@ -1,0 +1,156 @@
+.timeline {
+  position: relative;
+  overflow: hidden;
+
+  &__line {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    background-color: $purple;
+    width: 4px;
+    height: 100%;
+
+    @include breakpoint(large) {
+      left: calc(50% - 3px);
+      width: 6px;
+    }
+  }
+
+  &__point {
+    position: relative;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+
+    @include breakpoint(large) {
+      width: calc(50% - 60px);
+      margin-left: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: -33px;
+      top: 80px;
+      width: 0;
+      height: 4px;
+      background-color: $purple;
+      transform: translate(-100%, -50%);
+      transition: all 0.3s ease-out 0.5s;
+
+      @include breakpoint(large) {
+        right: -63px;
+        left: unset;
+        top: 50%;
+        transform: translate(100%, -50%);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: -52px;
+      top: 80px;
+      width: 0;
+      height: 0;
+      border-radius: 20px;
+      background-color: $orange;
+      border: 0 solid $purple;
+      transform: translate(50%, -50%);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      @include breakpoint(large) {
+        left: unset;
+        right: -60px;
+        top: 50%;
+      }
+    }
+
+    @include breakpoint(large) {
+      &:nth-child(even) {
+        margin-left: auto;
+
+        &::before {
+          left: -63px;
+          transform: translate(-100%, -50%);
+        }
+
+        &::after {
+          left: -60px;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    &--animate {
+      opacity: 1;
+
+      &::before {
+        left: 0;
+        width: 33px;
+
+        @include breakpoint(large) {
+          left: unset;
+          right: 0;
+          width: 60px;
+        }
+      }
+
+      &::after {
+        width: 15px;
+        height: 15px;
+        border: 2px solid $purple;
+
+        @include breakpoint(large) {
+          width: 20px;
+          height: 20px;
+          border: 4px solid $purple;
+        }
+      }
+
+      @include breakpoint(large) {
+        &:nth-child(even) {
+          &::before {
+            left: 0;
+            right: unset;
+          }
+        }
+      }
+
+      .timeline__wrap {
+        opacity: 1;
+        box-shadow: 5px 5px 5px 0 #c9c9c9;
+      }
+    }
+  }
+
+  &__wrap {
+    border: 2px solid $purple;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 0 #c9c9c900;
+    opacity: 0;
+    transition: opacity 0.8s ease-out 1s, box-shadow 0.5s ease-out 1.3s;
+  }
+
+  &__year {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid $purple;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    @include breakpoint(large) {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__content {
+    font-size: 14px;
+
+    @include breakpoint(large) {
+      font-size: 16px;
+    }
+  }
+}
