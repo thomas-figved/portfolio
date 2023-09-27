@@ -3,7 +3,6 @@
   display: flex;
 
   &__section {
-    border-bottom: 2px solid var(--primary-color);
     width: 50%;
 
     &:first-child{
@@ -13,8 +12,51 @@
 
   &__section-header {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: underline;
     color: var(--primary-color);
+
+    @include breakpoint(large) {
+      font-size: 30px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(large) {
+      font-size: 30px;
+    }
+
+    &--small {
+      font-size: 14px;
+
+      @include breakpoint(large) {
+        font-size: 16px;
+      }
+    }
+
+    i {
+      margin-right: 10px;
+    }
+
+    .ico {
+      width: 18px;
+      height: 18px;
+
+      @include breakpoint(large) {
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
 }

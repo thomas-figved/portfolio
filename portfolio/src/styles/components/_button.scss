@@ -30,6 +30,16 @@
     }
   }
 
+  &--cta {
+    border: 2px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+
+    &:hover {
+      color: var(--secondary-color);
+      background-color: $white;
+    }
+  }
+
   &--small {
     padding: 5px 20px;
   }

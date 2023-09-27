@@ -84,4 +84,24 @@
   &__about {
     height: 100%;
   }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__extra-skills {
+    margin-bottom: 60px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 80px;
+  }
 }

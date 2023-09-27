@@ -74,23 +74,20 @@ function PageHome() {
           Let's connect and create something great together.
 
           <div className="about__button">
-            <button className="button">
+            <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='button button--cta'>
               Get in touch
-            </button>
+            </Link>
           </div>
 
           <ul className="about__list">
             <li className="about__item">
-              Connect on <a rel="noreferrer" href="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='link'><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
+              Connect on <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='link'><i className="fa-brands fa-linkedin"></i> LinkedIn <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
             </li>
             <li className="about__item">
-              Download my <a rel="noreferrer" href="/" target="_blank" className='link'><i className="fa-solid fa-file-pdf"></i> resume as PDF</a>
+              Read some of my<Link rel="noreferrer" to="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
             </li>
             <li className="about__item">
-              Read some of <a rel="noreferrer" href="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub</a>
-            </li>
-            <li className="about__item">
-            Check <a rel="noreferrer" href="https://github.com/thomas-figved/portfolio" target="_blank" className='link'><i className="fa-brands fa-github"></i> this portfolio's code</a>
+            Check <Link rel="noreferrer" to="https://github.com/thomas-figved/portfolio" target="_blank" className='link'><i className="fa-brands fa-github"></i> this portfolio's code <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
             </li>
           </ul>
 

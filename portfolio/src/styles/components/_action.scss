@@ -1,11 +1,16 @@
 .action {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 20px;
+  right: 20px;
   animation: gently_hover 3s infinite alternate;
   display: flex;
   flex-direction: column;
   z-index: 10;
+
+  @include breakpoint(large) {
+    bottom: 40px;
+    right: 40px;
+  }
 
   &:hover {
     animation-play-state: paused;

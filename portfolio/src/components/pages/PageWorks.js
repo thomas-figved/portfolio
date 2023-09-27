@@ -2,6 +2,7 @@ import {React, useState, useRef, useLayoutEffect, useEffect} from "react";
 
 import Card from "components/Card";
 import { get_cat_name, get_cat_ico } from "helpers";
+import { Link } from "react-router-dom";
 
 import { gsap } from 'gsap';
 import password from "data/password.json";
@@ -126,23 +127,41 @@ function PageWorks(props) {
   return (
     <>
 
+      <div className="page-wrap__title">
+        <h1 className="title">Works</h1>
+      </div>
+
       {!isLoggedIn &&
-        <form className="login">
-          <label htmlFor="pwd" className="login__label">Enter password:</label>
-
-          <div className="login__row">
-            <input type="password" className="login__input" ref={password_input} id="pwd" required/>
-            <div className="login__button">
-              <button className="button" onClick={verifyPassword} type="submit">Login</button>
-            </div>
+        <>
+          <div className="page-wrap__button">
+            <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='button button--cta'>
+              Ask for password
+            </Link>
           </div>
+          <form className="login">
+            <label htmlFor="pwd" className="login__label">Enter password:</label>
 
-          <div className="login__error"></div>
-        </form>
+            <div className="login__row">
+              <input type="password" className="login__input" ref={password_input} id="pwd" required/>
+              <div className="login__button">
+                <button className="button" onClick={verifyPassword} type="submit">Login</button>
+              </div>
+            </div>
+
+            <div className="login__error"></div>
+          </form>
+        </>
       }
 
       {isLoggedIn &&
         <>
+
+          <div className="page-wrap__button page-wrap__button--left">
+            <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='button button--cta'>
+              Add your project
+            </Link>
+          </div>
+
           <div className="page-wrap__filter-button">
             <button className="page-wrap__filter-button button" onClick={handleToggleShowFilters}>
               <i className="fa-solid fa-filter"></i> Filter by tech / work

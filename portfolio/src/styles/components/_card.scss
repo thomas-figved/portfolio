@@ -55,6 +55,10 @@
     color: $white;
     margin-left: 10px;
     font-size: 20px;
+
+    &.ico {
+      filter: var(--svg-white-filter);
+    }
   }
 
   &:hover {

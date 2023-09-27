@@ -156,11 +156,29 @@
     }
   }
 
+  &__title {
+    font-size: 20px;
+
+    &--smaller {
+      font-size: 16px;
+    }
+  }
+
   &__content {
     font-size: 14px;
 
     @include breakpoint(large) {
       font-size: 16px;
     }
+  }
+
+  &__language {
+    margin-top: 20px;
+  }
+
+  &__flag {
+    width: 20px;
+    display: inline-block;
+    border: 1px solid var(--text-color);
   }
 }

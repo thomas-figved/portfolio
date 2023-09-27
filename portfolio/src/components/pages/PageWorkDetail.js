@@ -1,6 +1,5 @@
 import {React, useRef, useEffect, useLayoutEffect} from "react";
-import {useParams, useNavigate} from "react-router-dom";
-
+import {Link, useParams, useNavigate} from "react-router-dom";
 import { get_cat_name } from "helpers";
 
 import parse from 'html-react-parser';
@@ -84,6 +83,11 @@ function PageWorkDetail(props) {
           Categories: {work.categories.map(get_cat_name).join(', ')}
         </div>
       </div>
+      <div className="page-wrap__button">
+        <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='button button--cta'>
+          Ask me about this project
+        </Link>
+      </div>
       <div className="work-content" ref={workContent}>
         {
           work.content.map(function(content, idx){
@@ -97,7 +101,7 @@ function PageWorkDetail(props) {
               return (
                 <div key={idx} className="work-content__video" data-fade-in data-video-index={idx}>
 
-                  <video preload="true" controls playsInline muted="true" loop className="video-player">
+                  <video preload="true" controls playsInline muted={true} loop className="video-player">
                     <source src={get_video_path(work.folder, content.filename, "webm")}  type='video/webm'/>
                     <source src={get_video_path(work.folder, content.filename, "mp4")}  type='video/mp4'/>
                   </video>
