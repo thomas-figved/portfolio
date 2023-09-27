@@ -1,0 +1,20 @@
+.skills {
+  margin-bottom: 60px;
+  display: flex;
+
+  &__section {
+    border-bottom: 2px solid var(--primary-color);
+    width: 50%;
+
+    &:first-child{
+      border-right: 2px solid var(--primary-color);
+    }
+  }
+
+  &__section-header {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    color: var(--primary-color);
+  }
+}

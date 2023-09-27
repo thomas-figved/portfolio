@@ -1,0 +1,12 @@
+.theme-switcher {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  &__button {
+    @include reset_button();
+
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+  }
+}

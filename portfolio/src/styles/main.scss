@@ -1,10 +1,15 @@
 @import "common/variables";
+@import "common/variables-css";
 @import "common/mixins";
 @import "common/global";
 
+@import "components/app";
+@import "components/action";
 @import "components/header";
 @import "components/nav";
 @import "components/page-wrap";
+@import "components/about";
+@import "components/button";
 @import "components/filter";
 @import "components/card";
 @import "components/title";
@@ -17,4 +22,5 @@
 @import "components/login";
 @import "components/link";
 @import "components/timeline";
-@import "components/footer";
+@import "components/skills";
+@import "components/theme-switcher";

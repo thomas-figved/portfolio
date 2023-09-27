@@ -2,20 +2,21 @@
   @include reset_button();
 
   font-size: 16px;
-  color: $gray;
+  color: var(--primary-color);
   margin: 0 5px 5px 0;
   padding: 5px 10px;
-  border: 2px solid $gray;
+  border: 2px solid var(--primary-color);
   border-radius: 10px;
   background-color: $white;
 
   &--active {
-    border: 2px solid $purple;
-    color: $purple;
+    // border: 2px solid var(--secondary-color);
+    // color: var(--secondary-color);
+    background-color: var(--secondary-color);
 
     & .filter__ico {
       &.ico {
-        filter: invert(47%) sepia(81%) saturate(801%) hue-rotate(218deg) brightness(100%) contrast(85%);
+        //filter: var(--svg-secondary-filter);
       }
     }
   }
@@ -26,8 +27,8 @@
     &.ico {
       width: 16px;
       height: 16px;
-      color: $lightgray;
-      filter: invert(40%) sepia(13%) saturate(0%) hue-rotate(218deg) brightness(89%) contrast(84%);
+      color: var(--text-color);
+      filter: var(--svg-primary-filter);
     }
   }
 }

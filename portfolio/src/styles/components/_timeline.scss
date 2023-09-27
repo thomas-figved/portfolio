@@ -1,12 +1,24 @@
 .timeline {
   position: relative;
   overflow: hidden;
+  padding-top: 40px;
+
+  &__scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include breakpoint(large) {
+      left: calc(50%);
+      transform: translateX(-50%);
+    }
+  }
 
   &__line {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 15px;
-    background-color: $purple;
+    background-color: var(--primary-color);
     width: 4px;
     height: 100%;
 
@@ -34,9 +46,9 @@
       top: 80px;
       width: 0;
       height: 4px;
-      background-color: $purple;
+      background-color: var(--primary-color);
       transform: translate(-100%, -50%);
-      transition: all 0.3s ease-out 0.5s;
+      transition: all 0.2s ease-out 0.2s;
 
       @include breakpoint(large) {
         right: -63px;
@@ -54,10 +66,10 @@
       width: 0;
       height: 0;
       border-radius: 20px;
-      background-color: $orange;
-      border: 0 solid $purple;
+      background-color: var(--secondary-color);
+      border: 0 solid var(--primary-color);
       transform: translate(50%, -50%);
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       @include breakpoint(large) {
         left: unset;
@@ -99,12 +111,12 @@
       &::after {
         width: 15px;
         height: 15px;
-        border: 2px solid $purple;
+        border: 2px solid var(--primary-color);
 
         @include breakpoint(large) {
           width: 20px;
           height: 20px;
-          border: 4px solid $purple;
+          border: 4px solid var(--primary-color);
         }
       }
 
@@ -119,24 +131,22 @@
 
       .timeline__wrap {
         opacity: 1;
-        box-shadow: 5px 5px 5px 0 #c9c9c9;
       }
     }
   }
 
   &__wrap {
-    border: 2px solid $purple;
+    border: 2px solid var(--primary-color);
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px 0 #c9c9c900;
     opacity: 0;
-    transition: opacity 0.8s ease-out 1s, box-shadow 0.5s ease-out 1.3s;
+    transition: opacity 0.6s ease-out .4s;
   }
 
   &__year {
     font-weight: bold;
     text-align: center;
-    border-bottom: 2px solid $purple;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
     margin-bottom: 10px;
 

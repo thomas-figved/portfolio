@@ -1,54 +1,55 @@
 .card {
   display: block;
+  width: 100%;
   font-weight: bold;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  //border: 1px solid $lightgray;
+  border-radius: 10px;
 
-  &__top {
-    border-radius: 0;//10px 10px 0 0 ;
-    border: 2px solid var(--primary-color);
-    flex-grow: 1;
+  @include breakpoint(medium) {
+    aspect-ratio: 1.5;
   }
 
   &__title {
+    position: absolute;
+    top: 50%;
     text-align: center;
     width: 100%;
-    color: var(--primary-color);
-    background-color: $white;
+    color: $white;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    transform: translateY(-50%);
     margin: 0;
     font-size: 25px;
     font-weight: bold;
-    padding: 10px;
-    border-radius: 0;//10px 10px 0 0;
-    border-bottom: 2px solid var(--primary-color);
-  }
-
-  &__intro {
-    font-weight: 400;
     padding: 0 10px;
-
   }
 
-  &__img {
+  &__bg {
     filter: brightness(1);
     transition: filter 0.3s ease-out;
     object-fit: cover;
     object-position: center center;
     height: 150px;
+    border-radius: 10px 10px 0 0;
 
     @include breakpoint(medium) {
-      height: 150px;
+      height: 100%;
+    }
+
+    img {
+      border-radius: 10px 10px 0 0;
     }
   }
 
   &__ico-wrap {
+    position: relative;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: $black;
     display: flex;
     justify-content: flex-start;
     padding: 5px 10px;
-    border-radius: 0;//0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
   }
 
   &__ico {
@@ -58,6 +59,12 @@
   }
 
   &:hover {
+    .card__title {
+      opacity: 1;
+    }
 
+    .card__bg {
+      filter: brightness(0.2);
+    }
   }
 }

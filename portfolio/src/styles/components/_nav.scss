@@ -1,4 +1,6 @@
 .nav {
+  width: 100%;
+
   &__list {
     display: flex;
     justify-content: center;
@@ -9,6 +11,7 @@
   &__item {
     max-width: 200px;
     flex: 1;
+    color: var(--text-over-accent);
   }
 
   &__link {
@@ -16,7 +19,7 @@
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
-    transition: color 0.3s ease-out;
+    transition: color 0.5s ease-out;
     font-weight: bold;
 
     &::before {
@@ -27,18 +30,14 @@
       content: "";
       width: 120%;
       height: 100%;
-      background: $purple;
+      background: var(--secondary-color);
       transform-origin: right top;
-      transition: transform 0.3s;
+      transition: transform 0.5s;
       transform: skewX(-30deg) scale(0, 1);
     }
 
     &:hover {
-      color: $white;
-    }
-
-    &:active {
-      color: $white;
+      color: var(--text-over-accent);
     }
 
     &:hover::before {
@@ -54,12 +53,12 @@
       content: "";
       width: 120%;
       height: 0;
-      background: $white;
-      transition: height 0.3s 0.3s;
+      background: var(--primary-color);
+      transition: height 0.5s 0.5s;
     }
 
     &--active {
-      color: $gray;
+      color: var(--text-over-accent);
 
       &::before {
         transform-origin: left top;
@@ -71,7 +70,7 @@
       }
 
       &:hover {
-        color: $gray;
+        color: var(--text-over-accent);
 
         &::after {
           height: calc(100% - 1px);

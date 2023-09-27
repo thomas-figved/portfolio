@@ -11,6 +11,7 @@ html {
 
 * {
   box-sizing: inherit;
+  transition: color 0.5s ease-out, background-color 0.5s ease-out, border-color 0.5s ease-out;
 }
 
 a {
@@ -21,8 +22,7 @@ a {
 body {
   position: relative;
   margin: 0;
-  color: $gray;
-  background-color: $white;
+  color: var(--text-color);
   font-family: $fonts;
   font-size: 16px;
   line-height: 1.8;

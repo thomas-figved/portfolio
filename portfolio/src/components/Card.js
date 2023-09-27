@@ -14,11 +14,20 @@ function Card(props) {
         to={props.id} 
         className="card"
       >
-        
-        <Picture className="card__bg" folder={props.work.folder} filename={props.work.folder}/>
-        <h3 className="card__title">
-          {props.work.title}
-        </h3>
+
+        <div className="card__top">
+          <h3 className="card__title">
+            {props.work.title}
+          </h3>
+
+          <Picture className="card__img" folder={props.work.folder} filename={props.work.folder}/>
+
+
+          <p className="card__intro">
+            {props.work.intro}
+          </p>
+        </div>
+
 
         <div className="card__ico-wrap">
 

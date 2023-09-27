@@ -6,18 +6,28 @@
   }
 
   &__paragraph {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto 60px;
+    padding: 0 0 60px;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid var(--primary-color);
+    }
 
     a {
       font-weight: bold;
       text-decoration: underline;
-      color: $purple;
+      color: var(--primary-color);
     }
   }
 
   &__video {
     max-width: 700px;
-    margin: 0 auto 80px;
+    margin: 0 auto 60px;
+    padding: 0 0 60px;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid var(--primary-color);
+    }
   }
 }

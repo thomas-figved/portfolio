@@ -10,8 +10,29 @@
     padding: 40px;
   }
 
+  &__label {
+    margin-bottom: 20px;
+  }
+
   &__error {
+    margin-top: 20px;
     color: $red;
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__input {
+    border: 2px solid var(--primary-color);
+    border-radius: 10px 0 0 10px;
+    padding: 0 20px;
+  }
+
+  &__button {
+    .button {
+      border-radius: 0 10px 10px 0;
+    }
   }
 }

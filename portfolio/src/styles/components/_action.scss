@@ -1,0 +1,67 @@
+.action {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  animation: gently_hover 3s infinite alternate;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__button {
+    @include reset_button();
+
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+    font-size: 30px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+
+    &--top {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateY(-100%);
+    background-color: $white;
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0;
+    text-align: right;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+
+    &--open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__item {
+    white-space: nowrap;
+  }
+}
+
+@keyframes gently_hover {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}

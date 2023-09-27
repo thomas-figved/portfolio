@@ -15,6 +15,7 @@ function PageWorks(props) {
 
   const animation_trigger = useRef();
   const password_input = useRef();
+  const filterList = useRef();
 
 
   useLayoutEffect(() => {
@@ -91,7 +92,6 @@ function PageWorks(props) {
   }, [])
 
   const displayError = function(msg) {
-    console.log(msg);
     document.querySelector('.login__error').textContent = msg;
   }
 
@@ -115,6 +115,13 @@ function PageWorks(props) {
     }
   }
 
+  const handleToggleShowFilters = function(e) {
+    e.preventDefault()
+
+    e.currentTarget.classList.toggle('button--active');
+    filterList.current.classList.toggle('page-wrap__filter--open');
+  }
+
 
   return (
     <>
@@ -125,7 +132,9 @@ function PageWorks(props) {
 
           <div className="login__row">
             <input type="password" className="login__input" ref={password_input} id="pwd" required/>
-            <button className="login__submit" onClick={verifyPassword} type="submit">Login</button>
+            <div className="login__button">
+              <button className="button" onClick={verifyPassword} type="submit">Login</button>
+            </div>
           </div>
 
           <div className="login__error"></div>
@@ -134,15 +143,14 @@ function PageWorks(props) {
 
       {isLoggedIn &&
         <>
-          <div className="page-wrap__filter-txt">
-            Filter by categories:
-          </div>
-          {/* <div className="page-wrap__button">
-            <button className="button">
-              Show filters
+          <div className="page-wrap__filter-button">
+            <button className="page-wrap__filter-button button" onClick={handleToggleShowFilters}>
+              <i className="fa-solid fa-filter"></i> Filter by tech / work
             </button>
-          </div> */}
-          <div className="page-wrap__filter">
+          </div>
+
+
+          <div className="page-wrap__filter" ref={filterList}>
             { props.filters.map(function(filter, i) {
                 return (
                   <button className="filter" key={filter} onClick={filterWorks} data-filter={filter}>

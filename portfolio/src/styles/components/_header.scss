@@ -1,25 +1,19 @@
 .header{
-  margin: 30px 20px 60px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 50px;
   max-width: 1200px;
   text-align: center;
-
-  @include breakpoint(small) {
-    margin: 30px 30px 60px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  z-index: 10;
 
   @include breakpoint(large) {
-    margin: 30px auto 60px;
-  }
-
-  &__presentation {
-    margin-bottom: 30px;
-  }
-
-  &__title {
-    margin: 0 0 15px;
-  }
-
-  &__subtitle {
-    margin: 0;
+    height: 100px;
   }
 }

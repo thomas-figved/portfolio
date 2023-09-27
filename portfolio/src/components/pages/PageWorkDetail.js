@@ -44,7 +44,7 @@ function PageWorkDetail(props) {
         gsap.from(item, {
           opacity: 0,
           y: 100,
-          duration: 1,
+          duration: 0.5,
           onStart: function(){
             let video = item.querySelector("video");
             if(video !== null) {
@@ -75,7 +75,7 @@ function PageWorkDetail(props) {
         ← Back to works
       </NavLink>
       <div className="work-intro">
-        <h2 className="work-intro__title">{work.title}</h2>
+        <h1 className="work-intro__title">{work.title}</h1>
 
         <div className="work-intro__txt">
           {work.intro}
