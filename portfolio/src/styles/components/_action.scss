@@ -54,9 +54,27 @@
 
 
   &__button-row {
+    position: relative;
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
+  }
+
+  &__response {
+    position: absolute;
+    opacity: 0;
+    bottom: calc(100% + 10px);
+    right: 0;
+    background-color: $white;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 5px 10px;
+
+    &--show {
+      opacity: 1;
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import  'styles/main.scss';
 
-import {React, useRef, useState, useLayoutEffect} from "react";
+import {React, useRef, useState, useEffect, useLayoutEffect} from "react";
 import {Route, Routes } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 
@@ -32,8 +32,21 @@ function retrieve_filters(works) {
 function App() {
 
   const actionContentRef = useRef();
-
+  const actionResponse = useRef();
   const [sliderPickerColor, setSliderPickerColor] = useState("#835eec");
+
+
+  useEffect(function(){
+    //read cookie
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("themeColor="))
+      ?.split("=")[1];
+
+    if(cookieValue !== undefined) {
+      setSliderPickerColor(cookieValue);
+    }
+  }, [])
 
 
   useLayoutEffect(() => {
@@ -65,9 +78,21 @@ function App() {
 
   const handleRandomColor = function(e) {
     let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
-    console.log(randomColor)
     setSliderPickerColor(randomColor);
   }
+
+  const handleSaveColor = function(e) {
+    var domainName = window.location.hostname;
+    document.cookie = `themeColor=${sliderPickerColor};max-age=604800;domain=${domainName}`;
+
+    actionResponse.current.classList.add('action__response--show');
+
+    setTimeout(() => {
+      actionResponse.current.classList.remove('action__response--show');
+    }, "1500");
+
+  }
+
 
   return (
     <div className="app">
@@ -105,11 +130,14 @@ function App() {
                 <i className="fa-solid fa-shuffle"></i>
               </button>
 
-              <button className="button button--small">
+              <button className="button button--small" onClick={handleSaveColor}>
                 <i className="fa-regular fa-floppy-disk"></i>
               </button>
-            </div>
 
+              <div className="action__response" ref={actionResponse}>
+                Saved !
+              </div>
+            </div>
           </div>
         </div>
       </div>
