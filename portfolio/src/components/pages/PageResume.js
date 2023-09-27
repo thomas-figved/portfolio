@@ -144,7 +144,7 @@ function PageResume() {
               <img src={require('images/fr.png')} alt="" className="extra-skills__flag" /> French <span className="extra-skills__item--small">(native)</span>
             </div>
             <div className="extra-skills__item">
-              <img src={require('images/uk.png')} alt="" className="extra-skills__flag" /> English <span className="extra-skills__item--small">(Full working profeciency)</span>
+              <img src={require('images/uk.png')} alt="" className="extra-skills__flag" /> English <span className="extra-skills__item--small">(full working proficiency)</span>
             </div>
             <div className="extra-skills__item">
               <img src={require('images/jp.png')} alt="" className="extra-skills__flag" /> Japanese <span className="extra-skills__item--small">(intermediary level, JLPT N3)</span>
@@ -170,7 +170,7 @@ function PageResume() {
           <div className="timeline__wrap">
             <div className="timeline__year">Today</div>
             <div className="timeline__content">
-              Looking for opening a new chapter of my career in a different corner of the world.
+              Looking to open a new chapter of my career in a different corner of the world.
             </div>
           </div>
         </div>
@@ -181,7 +181,7 @@ function PageResume() {
               Web developer at Matoi Creative
             </h2>
             <div className="timeline__content">
-              Creating websites from markup to delivery. Mostly creating bespoke WordPress theme with a strong accent on the frontend. Worked on more that 25 projects of different sizes, from single static pages to bigger project with multiple WordPress.
+              Creating websites from markup to delivery. Mostly creating bespoke WordPress theme with a strong accent on the frontend. Worked on over 25 projects of different sizes, from single static pages to bigger projects with multiple WordPress.
               As part of a small team I had to work in almost complete autonomy. Had to tackle various technical challenges which range from coding to security and 3D modeling.
             </div>
             <div className="timeline__language">

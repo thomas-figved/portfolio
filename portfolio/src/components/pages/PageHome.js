@@ -64,13 +64,13 @@ function PageHome() {
     <div className="page-wrap__about">
       <div className="about" ref={animation_ctx}>
         <h1 className="about__title">
-          Looking for a web developper ?
+          Looking for a web developer ?
         </h1>
         <div className="about__hi">
           Hi, I'm Thomas
         </div>
         <div className="about__content">
-          Originally from France and currently based in Japan, I'm looking for new opportunities elsewhere. Take a peek at my portfolio to see <Link to="works" className="link">some of my work</Link>, or have an overview on my <Link to="resume" className="link">15 years of experience</Link>.
+          Originally from France and currently based in Japan, I'm looking for new opportunities elsewhere. Take a peek at my portfolio to see <Link to="works" className="link">some of my work</Link>, or have an overview of my <Link to="resume" className="link">15 years of experience</Link>.
           Let's connect and create something great together.
 
           <div className="about__button">
