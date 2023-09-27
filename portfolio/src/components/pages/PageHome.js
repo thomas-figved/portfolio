@@ -84,7 +84,7 @@ function PageHome() {
               Connect on <Link rel="noreferrer" to="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='link'><i className="fa-brands fa-linkedin"></i> LinkedIn <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
             </li>
             <li className="about__item">
-              Read some of my<Link rel="noreferrer" to="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
+              Read some of my <Link rel="noreferrer" to="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
             </li>
             <li className="about__item">
             Check <Link rel="noreferrer" to="https://github.com/thomas-figved/portfolio" target="_blank" className='link'><i className="fa-brands fa-github"></i> this portfolio's code <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>

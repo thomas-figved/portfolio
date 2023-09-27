@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   padding: 0 0 20px;
-  margin:  0 0 80px;
+  margin:  0 0 40px;
   border-bottom: 1px solid var(--primary-color);
+
+  @include breakpoint(large) {
+    margin:  0 0 80px;
+  }
 
   &__title {
     margin: 0 0 10px;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 60px;
   }
 
   &__txt {

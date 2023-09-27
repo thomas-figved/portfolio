@@ -5,10 +5,14 @@
   border: 2px solid var(--primary-color);
   padding: 10px 30px;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: $white;
   background-color: var(--primary-color);
+
+  @include breakpoint(large) {
+    font-size: 20px;
+  }
 
   &:hover {
     color: var(--primary-color);

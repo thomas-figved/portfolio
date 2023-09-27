@@ -74,7 +74,9 @@ function PageWorkDetail(props) {
         ← Back to works
       </NavLink>
       <div className="work-intro">
-        <h1 className="work-intro__title">{work.title}</h1>
+        <div className="work-intro__title">
+          <h1 className="title">{work.title}</h1>
+        </div>
 
         <div className="work-intro__txt">
           {work.intro}

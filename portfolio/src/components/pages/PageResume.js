@@ -227,7 +227,7 @@ function PageResume() {
           <div className="timeline__wrap">
             <div className="timeline__year">2009 to 2011</div>
             <h2 className="timeline__title">
-              <i className="fa-solid fa-user-graduate"></i> Bachelor's degree in Computer Scienceat Sup2i <span className="timeline__title--smaller">(Titre RNCP Concepteur développeur informatique)</span>
+              <i className="fa-solid fa-user-graduate"></i> Bachelor's degree in Computer Science at Sup2i <span className="timeline__title--smaller">(Titre RNCP Concepteur développeur informatique)</span>
             </h2>
             <div className="timeline__content">
               In apprenticeship at HDMedia <br />

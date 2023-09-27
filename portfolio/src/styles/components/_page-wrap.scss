@@ -30,6 +30,12 @@
 
   &__filter-button {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint(large) {
+      justify-content: flex-start;
+    }
   }
 
   &__filter {
@@ -102,6 +108,10 @@
   &__button {
     display: flex;
     justify-content: center;
-    margin: 40px 0 80px;
+    margin: 20px 0 40px;
+
+    @include breakpoint(large) {
+      margin: 40px 0 80px;
+    }
   }
 }
