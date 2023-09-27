@@ -5,6 +5,7 @@
   animation: gently_hover 3s infinite alternate;
   display: flex;
   flex-direction: column;
+  z-index: 10;
 
   &:hover {
     animation-play-state: paused;
@@ -30,7 +31,7 @@
     }
   }
 
-  &__list {
+  &__content {
     position: absolute;
     top: 0;
     right: 50%;
@@ -51,8 +52,11 @@
     }
   }
 
-  &__item {
-    white-space: nowrap;
+
+  &__button-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
   }
 }
 

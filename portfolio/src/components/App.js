@@ -1,6 +1,6 @@
 import  'styles/main.scss';
 
-import {React, useRef} from "react";
+import {React, useRef, useState, useLayoutEffect} from "react";
 import {Route, Routes } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 
@@ -10,7 +10,7 @@ import PageWorks from 'components/pages/PageWorks'
 import PageResume from 'components/pages/PageResume'
 import PageWorkDetail from 'components/pages/PageWorkDetail'
 
-// import { get_theme_vars } from 'helpers';
+import { SliderPicker } from 'react-color';
 
 import { hexToComplimentary, get_svg_filter } from 'helpers';
 
@@ -31,27 +31,42 @@ function retrieve_filters(works) {
 
 function App() {
 
-  const actionListRef = useRef();
-  const colorInput = useRef();
+  const actionContentRef = useRef();
 
-  const handleToggleThemeList = function(e) {
-    e.preventDefault();
+  const [sliderPickerColor, setSliderPickerColor] = useState("#835eec");
 
-    actionListRef.current.classList.toggle('action__list--open');
-  }
 
-  const handleSubmit = function(e){
-    e.preventDefault();
-
-    const color_val = colorInput.current.value;
-    const complementary = hexToComplimentary(color_val);
+  useLayoutEffect(() => {
+    const complementary = hexToComplimentary(sliderPickerColor);
 
     let r = document.querySelector(':root');
-    r.style.setProperty('--primary-color', color_val);
+    r.style.setProperty('--primary-color', sliderPickerColor);
     r.style.setProperty('--secondary-color', complementary);
-    r.style.setProperty('--washed-primary-color', color_val + "94");
-    r.style.setProperty('--svg-primary-filter', get_svg_filter(color_val));
+    r.style.setProperty('--washed-primary-color', sliderPickerColor + "94");
+    r.style.setProperty('--svg-primary-filter', get_svg_filter(sliderPickerColor));
     r.style.setProperty('--svg-secondary-filter', get_svg_filter(complementary));
+
+  }, [sliderPickerColor]);
+
+
+  const handleShowAction = function(e) {
+    e.preventDefault();
+
+    actionContentRef.current.classList.toggle('action__content--open');
+  }
+
+  const handleReset = function(e) {
+    setSliderPickerColor("#835eec");
+  }
+
+  const handleColorChange = function(color, e) {
+    setSliderPickerColor(color.hex);
+  }
+
+  const handleRandomColor = function(e) {
+    let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+    console.log(randomColor)
+    setSliderPickerColor(randomColor);
   }
 
   return (
@@ -70,41 +85,34 @@ function App() {
 
       <div className="action">
         <div className="action__wrap">
-          <button className="action__button" onClick={handleToggleThemeList}>
+          <button className="action__button" onClick={handleShowAction}>
             <i className="fa-solid fa-palette"></i>
           </button>
 
-          <ul className="action__list" ref={actionListRef}>
-            <li className="action__item">
-              <form onSubmit={handleSubmit}>
-                <input type="text" ref={colorInput} />
-              </form>
-            </li>
-            {/* <li className="action__item">
-              Connect on <a rel="noreferrer" href="https://www.linkedin.com/in/thomas-figved-0056b62b/" target="_blank" className='link'><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
-            </li>
-            <li className="action__item">
-              Download my <a rel="noreferrer" href="/" target="_blank" className='link'><i className="fa-solid fa-file-pdf"></i> resume as PDF</a>
-            </li>
-            <li className="action__item">
-              Read some of <a rel="noreferrer" href="https://github.com/thomas-figved" target="_blank" className='link'><i className="fa-brands fa-github"></i> code on GitHub</a>
-            </li>
-            <li className="action__item">
-            Check <a rel="noreferrer" href="https://github.com/thomas-figved/portfolio" target="_blank" className='link'><i className="fa-brands fa-github"></i> this portfolio's code</a>
-            </li> */}
-          </ul>
+          <div className="action__content" ref={actionContentRef}>
+            <div className="action__slider-picker">
+                <SliderPicker
+                  color={sliderPickerColor}
+                  onChange={handleColorChange}
+                />
+            </div>
+            <div className="action__button-row">
+              <button className="button button--small" onClick={handleReset}>
+                <i className="fa-solid fa-rotate-left"></i>
+              </button>
+
+              <button className="button button--small" onClick={handleRandomColor}>
+                <i className="fa-solid fa-shuffle"></i>
+              </button>
+
+              <button className="button button--small">
+                <i className="fa-regular fa-floppy-disk"></i>
+              </button>
+            </div>
+
+          </div>
         </div>
       </div>
-
-
-      {/* <div className="theme-switcher">
-        <button className="theme-switcher__button" onClick={handleSwitchTheme} data-theme="original">
-          Original
-        </button>
-        <button className="theme-switcher__button" onClick={handleSwitchTheme} data-theme="fancy">
-          Fancy
-        </button>
-      </div> */}
       <ScrollToTop/>
     </div>
   );

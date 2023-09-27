@@ -51,75 +51,6 @@ export function get_cat_ico(cat) {
 }
 
 
-const theme_colors = {
-  "original": [
-    {
-      varname: "--background-color",
-      value: "#fff",
-    },
-    {
-      varname: "--primary-color",
-      value: "#835eec",
-    },
-    {
-      varname: "--washed-primary-color",
-      value: "#845eec94",
-    },
-    {
-      varname: "--text-color",
-      value: "#646464",
-    },
-    {
-      varname: "--text-over-accent",
-      value: "#fff",
-    },
-    {
-      varname: "--svg-primary-filter",
-      value: "invert(47%) sepia(81%) saturate(801%) hue-rotate(218deg) brightness(100%) contrast(85%)",
-    },
-    {
-      varname: "--svg-text-filter",
-      value: "invert(40%) sepia(13%) saturate(0%) hue-rotate(218deg) brightness(89%) contrast(84%)",
-    },
-  ],
-
-  "fancy": [
-    {
-      varname: "--background-color",
-      value: "#000",
-    },
-    {
-      varname: "--primary-color",
-      value: "#cdb941",
-    },
-    {
-      varname: "--washed-primary-color",
-      value: "#cdb84194",
-    },
-    {
-      varname: "--text-color",
-      value: "#e5e5e5",
-    },
-    {
-      varname: "--text-over-accent",
-      value: "#fff",
-    },
-    {
-      varname: "--svg-primary-filter",
-      value: "invert(74%) sepia(78%) saturate(396%) hue-rotate(4deg) brightness(91%) contrast(82%)",
-    },
-    {
-      varname: "--svg-text-filter",
-      value: "invert(97%) sepia(35%) saturate(98%) hue-rotate(293deg) brightness(111%) contrast(80%)",
-    },
-  ],
-}
-
-export function get_theme_vars(theme) {
-  return theme_colors[theme];
-}
-
-
 /* hexToComplimentary : Converts hex value to HSL, shifts
  * hue by 180 degrees and then converts hex, giving complimentary color
  * as a hex value
@@ -201,14 +132,43 @@ export function hexToComplimentary(hex){
   return "#" + (0x1000000 | rgb).toString(16).substring(1);
 }
 
+function rgbToHex(r, g, b) {
+  function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  }
+
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function hexToRgb(hex) {
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+    return r + r + g + g + b + b;
+  });
+
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16),
+      ]
+    : null;
+}
 
 class Color {
   constructor(r, g, b) {
     this.set(r, g, b);
   }
-  
-  toString() {
+
+  toRgb() {
     return `rgb(${Math.round(this.r)}, ${Math.round(this.g)}, ${Math.round(this.b)})`;
+  }
+
+  toHex() {
+    return rgbToHex(Math.round(this.r), Math.round(this.g), Math.round(this.b));
   }
 
   set(r, g, b) {
@@ -367,6 +327,7 @@ class Solver {
       values: result.values,
       loss: result.loss,
       filter: this.css(result.values),
+      filterRaw: this.raw(result.values),
     };
   }
 
@@ -473,36 +434,26 @@ class Solver {
     );
   }
 
+  raw(filters) {
+    function fmt(idx, multiplier = 1) {
+      return Math.round(filters[idx] * multiplier);
+    }
+    return `brightness(0) saturate(100%) invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%)`;
+  }
+
   css(filters) {
     function fmt(idx, multiplier = 1) {
       return Math.round(filters[idx] * multiplier);
     }
-    return `filter: invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%);`;
+    return `filter: brightness(0) saturate(100%) invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%);`;
   }
 }
 
-function hexToRgb(hex) {
-  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, (m, r, g, b) => {
-    return r + r + g + g + b + b;
-  });
-
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? [
-      parseInt(result[1], 16),
-      parseInt(result[2], 16),
-      parseInt(result[3], 16),
-    ]
-    : null;
-}
-
 export function get_svg_filter(hex) {
-  const rgb = hexToRgb(hex)
+  const rgb = hexToRgb(hex);
   const color = new Color(rgb[0], rgb[1], rgb[2]);
-  const solver = new Solver(color);
+  const solver =  new Solver(color);
   const result = solver.solve();
 
-  return result;
+  return result.filterRaw;
 }
