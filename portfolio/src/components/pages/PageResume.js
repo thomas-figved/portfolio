@@ -181,8 +181,8 @@ function PageResume() {
               Web developer at Matoi Creative
             </h2>
             <div className="timeline__content">
-              Creating websites from markup to delivery. Mostly creating bespoke WordPress theme with a strong accent on the frontend. Worked on over 25 projects of different sizes, from single static pages to bigger projects with multiple WordPress.
-              As part of a small team I had to work in almost complete autonomy. Had to tackle various technical challenges which range from coding to security and 3D modeling.
+              Creating websites from markup to delivery. Mostly creating bespoke WordPress themes with a strong accent on the frontend. Worked on over 30 projects of different sizes, from single static pages to bigger projects with multiple WordPress instances.
+              As part of a small team I had to work in almost complete autonomy. Had to tackle various technical challenges which range from coding to security to 3D modeling.
             </div>
             <div className="timeline__language">
               Language: <img src={require('images/jp.png')} alt="" className="timeline__flag" /><br/>
@@ -251,7 +251,7 @@ function PageResume() {
       </div>
 
       <div className="page-wrap__subtitle">
-        <h2 className="subtitle">Online classes</h2>
+        <h2 className="subtitle">Online classes and certifications</h2>
       </div>
 
       <div className="page-wrap__extra-skills">
@@ -261,6 +261,10 @@ function PageResume() {
             </div>
             <div className="extra-skills__item">
               <Link target="_blank" to="https://www.credly.com/badges/66236373-f7ef-4142-9a30-7484b4463ca6/linked_in_profile" className="link link--no-deco">Meta Front-End Developer Certificate <i className="fa-solid fa-arrow-up-right-from-square"></i></Link>
+            </div>
+
+            <div className="extra-skills__item">
+              Google Analytics Individual Qualification (2019)
             </div>
             <div className="extra-skills__item">
               Machine learning

@@ -83,7 +83,7 @@ function App() {
 
   const handleSaveColor = function(e) {
     var domainName = window.location.hostname;
-    document.cookie = `themeColor=${sliderPickerColor};max-age=604800;domain=${domainName}`;
+    document.cookie = `themeColor=${sliderPickerColor};max-age=2147483647;domain=${domainName}`;
 
     actionResponse.current.classList.add('action__response--show');
 

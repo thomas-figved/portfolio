@@ -38,7 +38,11 @@ const filter_correspondances = {
   "codeigniter": {
     ico_class: "ico ico--codeigniter",
     name: "CodeIgniter",
-  }
+  },
+  "blender": {
+    ico_class: "ico ico--blender",
+    name: "Blender",
+  },
 };
 
 

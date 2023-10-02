@@ -9,6 +9,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import password from "data/password.json";
+import Picture from "components/Picture";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -109,7 +110,15 @@ function PageWorkDetail(props) {
                   </video>
                 </div>
               )
-            }else{
+            } else if(content.type === "image"){
+              return (
+                <div key={idx} className="work-content__image" data-fade-in>
+
+                  <Picture className="img" folder={work.folder} filename={content.filename}/>
+                </div>
+              )
+            }
+            else{
               return "";
             }
           })
