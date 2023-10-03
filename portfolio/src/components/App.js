@@ -33,7 +33,7 @@ function App() {
 
   const actionContentRef = useRef();
   const actionResponse = useRef();
-  const [sliderPickerColor, setSliderPickerColor] = useState("#835eec");
+  const [sliderPickerColor, setSliderPickerColor] = useState("#bf4040");
 
 
   useEffect(function(){
@@ -69,7 +69,7 @@ function App() {
   }
 
   const handleReset = function(e) {
-    setSliderPickerColor("#835eec");
+    setSliderPickerColor("#bf4040");
   }
 
   const handleColorChange = function(color, e) {
@@ -111,7 +111,7 @@ function App() {
       <div className="action">
         <div className="action__wrap">
           <button className="action__button" onClick={handleShowAction}>
-            <i className="fa-solid fa-palette"></i>
+            <i className="fa-solid fa-brush"></i>
           </button>
 
           <div className="action__content" ref={actionContentRef}>
