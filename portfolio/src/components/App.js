@@ -1,7 +1,7 @@
 import  'styles/main.scss';
 
 import {React, useRef, useState, useEffect, useLayoutEffect} from "react";
-import {Route, Routes } from "react-router-dom";
+import {Route, Routes, useLocation } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 
 import Nav from 'components/Nav'
@@ -14,7 +14,13 @@ import { SliderPicker } from 'react-color';
 
 import { hexToComplimentary, get_svg_filter } from 'helpers';
 
+import ReactGA from "react-ga4";
+
 import works from 'data/works.json'
+
+
+ReactGA.initialize("G-CKMZST49QP");
+
 
 const all_filters = retrieve_filters(works);
 
@@ -30,6 +36,12 @@ function retrieve_filters(works) {
 }
 
 function App() {
+
+  let location = useLocation();
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+  }, [location]);
+
 
   const actionContentRef = useRef();
   const actionResponse = useRef();
