@@ -75,7 +75,7 @@ function PageHome() {
             <dt className="about__desc-list-term">Versatility:</dt>
             <dd className="about__desc-list-desc">Accustomed to wearing multiple hats.</dd>
             <dt className="about__desc-list-term">Autonomy and team play:</dt>
-            <dd className="about__desc-list-desc">I work well in a team but am also used to get things done on my own.</dd>
+            <dd className="about__desc-list-desc">I work well in a team but am also used to getting things done on my own.</dd>
             <dt className="about__desc-list-term">A multicultural mindset:</dt>
             <dd className="about__desc-list-desc">Worked in EN, JA and FR environments.</dd>
           </dl>
