@@ -11,7 +11,7 @@ function PageHome() {
   useLayoutEffect(() => {
     const ctx = gsap.context((self) => {
       const title = self.selector('.about__title');
-      const hi = self.selector('.about__hi');
+      const traits = self.selector('.about__traits');
       const content = self.selector('.about__content');
       const button = self.selector('.about__button');
       const list = self.selector('.about__list');
@@ -25,12 +25,12 @@ function PageHome() {
         duration: 0.5,
       });
 
-      anim_timeline.from(hi,
+      anim_timeline.from(traits,
       {
         x: -50,
         opacity:0,
         duration: 0.3,
-        delay: 0.5,
+        delay: 0.2,
       });
 
       anim_timeline.from(content,
@@ -38,7 +38,7 @@ function PageHome() {
         y: 50,
         opacity:0,
         duration: 0.3,
-        delay: 0.5,
+        delay: 0.2,
       });
 
       anim_timeline.from(button,
@@ -46,7 +46,7 @@ function PageHome() {
         y: 50,
         opacity:0,
         duration: 0.3,
-        delay: 0.5,
+        delay: 0.2,
       });
 
       anim_timeline.from(list,
@@ -64,13 +64,25 @@ function PageHome() {
     <div className="page-wrap__about">
       <div className="about" ref={animation_ctx}>
         <h1 className="about__title">
-          Looking for a web developer ?
+          Hi, I'm Thomas.
         </h1>
-        <div className="about__hi">
-          Hi, I'm Thomas
+        <div className="about__traits">
+          Here is what I can bring to your project:
+
+          <dl className="about__desc-list">
+            <dt className="about__desc-list-term">Experience:</dt>
+            <dd className="about__desc-list-desc">I have been in the industry for about 15 years.</dd>
+            <dt className="about__desc-list-term">Versatility:</dt>
+            <dd className="about__desc-list-desc">Accustomed to wearing multiple hats.</dd>
+            <dt className="about__desc-list-term">Autonomy and team play:</dt>
+            <dd className="about__desc-list-desc">I work well in a team but am also used to get things done on my own.</dd>
+            <dt className="about__desc-list-term">A multicultural mindset:</dt>
+            <dd className="about__desc-list-desc">Worked in EN, JA and FR environments.</dd>
+          </dl>
+
         </div>
         <div className="about__content">
-          Originally from France and currently based in Japan, I'm looking for new opportunities elsewhere. Take a peek at my portfolio to see <Link to="works" className="link">some of my work</Link>, or have an overview of my <Link to="resume" className="link">15 years of experience</Link>.
+          Originally from France and currently based in Japan, I'm looking for new opportunities in London. Take a peek at my portfolio to see <Link to="works" className="link">some of my work</Link>, or have an overview of my <Link to="resume" className="link">15 years of experience</Link>.
           Let's connect and create something great together.
 
           <div className="about__button">
