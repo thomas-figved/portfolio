@@ -144,7 +144,7 @@ function PageResume() {
               <img src={require('images/fr.png')} alt="" className="extra-skills__flag" /> French <span className="extra-skills__item--small">(native)</span>
             </div>
             <div className="extra-skills__item">
-              <img src={require('images/uk.png')} alt="" className="extra-skills__flag" /> English <span className="extra-skills__item--small">(full working proficiency)</span>
+              <img src={require('images/uk.png')} alt="" className="extra-skills__flag" /> English <span className="extra-skills__item--small">(full working proficiency - PTE Academic UKVI score 84)</span>
             </div>
             <div className="extra-skills__item">
               <img src={require('images/jp.png')} alt="" className="extra-skills__flag" /> Japanese <span className="extra-skills__item--small">(intermediary level, JLPT N3)</span>

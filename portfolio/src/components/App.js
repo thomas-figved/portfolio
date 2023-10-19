@@ -45,7 +45,7 @@ function App() {
 
   const actionContentRef = useRef();
   const actionResponse = useRef();
-  const [sliderPickerColor, setSliderPickerColor] = useState("#bf4040");
+  const [sliderPickerColor, setSliderPickerColor] = useState("#087ea4");
 
 
   useEffect(function(){
@@ -81,7 +81,7 @@ function App() {
   }
 
   const handleReset = function(e) {
-    setSliderPickerColor("#bf4040");
+    setSliderPickerColor("#087ea4");
   }
 
   const handleColorChange = function(color, e) {
